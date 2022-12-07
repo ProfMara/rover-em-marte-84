@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+
+    background-position: center;
+    background-size: cover;
+}
+#canvas
+{
+    margin-top: 10px;
+	border-width:40px;
+	background-color: white; 
+	border-style:ridge;
+}
+
+h1,h4
+{
+	
+	color:red!important;
+	
+}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title>Valores ASCII</title>
+</head>
+
+<body onload="add()">
+
+<center>
+<h1>Teclas do Teclado</h1>
+	<!--- Crie o elemento Canvas --->
+	<canvas id="canvas" width="600" height="600"></canvas>
+	<div id="d1"></div>
+<h4>
+	<b class="text-danger">NOTE : </b> PRESSIONE QUALQUER TECLA 
+</h4>
+
+</center>
+
+<script>
+// Create a reference for the canvas
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d")
+
+var imagemLargura = 300;
+var imagemAltura = 100; 
+
+var arquivo;
+var imagem;
+var imagemX = 100;
+var imagemY = 100;
+
+function add() {
+	imagem = new Image(); //definindo uma variável com uma nova imagem
+	imagem.onload = atualizarImagem; // ajustando uma função, ao carregar essa variável
+	imagem.src = arquivo;   // carregar uma imagem
+}
+
+function atualizarImagem() {
+	ctx.drawImage(imagem, imagemX, imagemY, imagemLargura, imagemAltura);
+}
+
+//Escreva um código para obter o evento key-pressed
+window.addEventListener("keydown", aperteiTecla);
+
+function aperteiTecla(e){
+	tecla = e.keyCode;
+	console.log(tecla);
+	//detecta se o valor da tecla pressionada corresponde ao do alfabeto
+	if((tecla >=97 && tecla<=122)|| (tecla >=65 && tecla<=90)){
+		//chame a função alfabeto	
+
+	}
+
+	else{
+		outras();
+		document.getElementById("d1").innerHTML="Você pressionou uma tecla de símbolo ou outras teclas";
+	}
+}
+
+function alfabeto(){
+	//defina o arquivo de imagem e chame a função add 
+
+}
+function numero(){
+		//defina o arquivo de imagem e adicione
+
+}
+function setas(){
+		//defina o arquivo de imagem e adicione
+
+}
+function especial(){
+		//defina o arquivo de imagem e adicione
+
+
+}
+function outras(){
+	//esse código define o arquivo da imagem
+	arquivo="outras.png";
+	//esse código chamou a função add()
+	add();
+}
+	
+
+
+
+</script>
+
+</body>
+</html>
